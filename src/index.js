@@ -1,15 +1,24 @@
-import React from 'react';
+// Create new component produce some html component gets put in the DOM
+
+import React, {Component} from 'react'
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
 
-import App from './components/app';
-import reducers from './reducers';
+class Index extends Component {
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+  state = {
+    someKey: 'someValue'
+  };
+
+  render = () => {
+    return <p> Hello {this.state.someKey}</p>;
+  }
+
+  componentDidMount() {
+    this.setState({someKey: '💩'});
+  }
+}
+
+export default Index;
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+  <Index/>, document.querySelector('.container'));
