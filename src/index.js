@@ -2,23 +2,22 @@
 
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom';
+import Searchbar from './components/Searchbar'
+const API_KEY = 'AIzaSyBTB--WSUyuwsavQLD4D37FE6wPXCAyh30';
 
-class Index extends Component {
-
+class App extends Component {
   state = {
     someKey: 'someValue'
   };
-
   render = () => {
-    return <p> Hello {this.state.someKey}</p>;
+    return <div>
+      <Searchbar/>
+    </div>;
   }
-
-  componentDidMount() {
-    this.setState({someKey: '💩'});
-  }
+  componentDidMount() {}
 }
 
-export default Index;
+export default App;
 
 ReactDOM.render(
-  <Index/>, document.querySelector('.container'));
+  <App/>, document.querySelector('.container'));
